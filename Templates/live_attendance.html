@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Attendance</title>
+  </head>
+  <body>
+    <h1>Live Attendance</h1>
+    {% if attendance is not none %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for index, row in attendance.iterrows() %}
+            <tr>
+              <td>{{ row['Name'] }}</td>
+              <td>{{ row['Attendance'] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No attendance data yet.</p>
+    {% endif %}
+  </body>
+</html>
